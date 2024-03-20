@@ -9,6 +9,13 @@ const CollapsibleTree = ({ data }) => {
   useEffect(() => {
     if (!data) return;
 
+    // Define the tooltip variable
+    const tooltip = d3
+      .select(containerRef.current)
+      .append('div')
+      .attr('class', 'tooltip')
+      .style('opacity', 0);
+
     const width = 1000;
     const marginTop = 10;
     const marginRight = 10;
@@ -97,8 +104,8 @@ const CollapsibleTree = ({ data }) => {
 
       nodeEnter
         .append('circle')
-        .attr('r', 2.5)
-        .attr('fill', (d) => (d.data.children ? '#fff' : '#fff'))
+        .attr('r', 3)
+        .attr('fill', (d) => (d.data.children ? '#28ed21' : '#fff'))
         .attr('stroke-width', 10);
 
       nodeEnter
@@ -106,12 +113,29 @@ const CollapsibleTree = ({ data }) => {
         .attr('dy', '0.31em')
         .attr('x', (d) => (d.data.children ? -6 : 6))
         .attr('text-anchor', (d) => (d.data.children ? 'end' : 'start'))
+        .attr('fill', '#fff')
         .text((d) => d.data.name)
-        .attr('stroke-linejoin', 'round')
-        .attr('stroke-width', 3)
-        .attr('stroke', 'white')
-        .attr('paint-order', 'stroke');
-      // .attr('fill', 'white');
+        .attr('class', 'hover-element')
+        .on('mouseover', function (event, d) {
+          tooltip
+            .html(d.data.name)
+            .transition()
+            .duration(200)
+            .style('opacity', 1)
+            .style('position', 'absolute')
+            .style('z-index', 100)
+            .style('background-color', '#c71423')
+            .style('color', 'white')
+            .style('padding', '4px 8px')
+            .style('border-radius', '4px')
+            .style('pointer-events', 'none')
+            .style('left', event.pageX + 'px')
+            .style('top', event.pageY - 28 + 'px')
+            .style('opacity', 1);
+        })
+        .on('mouseout', function (event, d) {
+          tooltip.transition().duration(200).style('opacity', 0);
+        });
 
       // Transition nodes to their new position.
       const nodeUpdate = node
