@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-const CollapsibleTree = ({ data }) => {
+const CollapsibleTree = ({ data, setData }) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
