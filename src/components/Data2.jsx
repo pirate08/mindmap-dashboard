@@ -22,9 +22,57 @@ export const data = {
         { name: 'Internal', children: [] }, // Add an empty children array for Internal
       ],
     },
-    { name: 'Planning', children: [] }, // Add an empty children array for Planning
-    { name: 'Designing', children: [] }, // Add an empty children array for Designing
-    { name: 'Manufacturing', children: [] }, // Add an empty children array for Manufacturing
-    { name: 'Sales/Marketing', children: [] }, // Add an empty children array for Sales/Marketing
+    {
+      name: 'Planning',
+      children: [
+        {
+          name: 'PRD',
+          children: [],
+        },
+        {
+          name: 'Specs',
+          children: [],
+        },
+      ],
+    }, // Add an empty children array for Planning
+    {
+      name: 'Designing',
+      children: [
+        {
+          name: 'Hardware',
+          children: [],
+        },
+        {
+          name: 'Software',
+          children: [],
+        },
+      ],
+    }, // Add an empty children array for Designing
+    {
+      name: 'Manufacturing',
+      children: [
+        {
+          name: 'Material',
+          children: [],
+        },
+        {
+          name: 'Production',
+          children: [],
+        },
+      ],
+    }, // Add an empty children array for Manufacturing
+    {
+      name: 'Sales/Marketing',
+      children: [
+        {
+          name: 'Online Marketing',
+          children: [],
+        },
+        {
+          name: 'Dealership',
+          children: [],
+        },
+      ],
+    }, // Add an empty children array for Sales/Marketing
   ],
 };
