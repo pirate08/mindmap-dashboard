@@ -93,7 +93,7 @@ const NodeManager = ({ data, setData, onSubmit }) => {
         </div>
       </div>
 
-      <div className='w-full md:w-auto md:ml-6 mt-4 md:mt-0'>
+      <div className='w-full md:w-auto mt-4 md:mt-0'>
         <div>
           <h2 className='text-center text-xl mb-4 border-b'>Delete Node</h2>
         </div>
@@ -114,7 +114,7 @@ const NodeManager = ({ data, setData, onSubmit }) => {
               type='text'
               value={parentNodeToDelete}
               className='text-black ml-0 md:ml-3 px-2 rounded-md py-1 mb-2 md:mb-0'
-              placeholder='Enter Node Name...'
+              placeholder='Enter Parent Node...'
               onChange={(e) => setParentNodeToDelete(e.target.value)}
             />
           </label>
